@@ -1,0 +1,498 @@
+.cartdiv {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 800px;
+    /* border: 5px red solid; */
+    border-radius: 15px;
+    margin: 0 auto 100px auto;
+}
+
+.moratab{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* border: 1px green solid; */
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.types{
+  /* position: absolute; */
+  display: flex;
+  height: 40px;
+  /* background-color: red; */
+  z-index: 50;
+  margin: 10px auto 0px auto;
+}
+
+.types p{
+  margin-bottom: 0;
+  font-family: IRANSans;
+}
+
+
+.gradientan{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 96vw;
+  max-width: 1020px;
+  height: 520px;
+  margin: 60px auto 100px auto;
+  border-radius: 15px;
+  padding: 10px;
+  /* padding: inherit; */
+  background-color: #007491;
+  /* transform: translateX(-1580px); */
+  justify-content: center;
+  align-items: center;
+  /* box-sizing: border-box; */
+  z-index: 1;
+  /* transition: 2s ease; */
+}
+
+/* .about{ 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #002781;
+  border-radius: 15px;
+  outline: 5px solid black;
+  transform: translateX(101%);
+} */
+
+.about{ 
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  /* height: 100%; */
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background-color: #002781;
+  border-radius: 15px;
+  outline: 5px solid black;
+  /* transform: translateX(261%); */
+  /* transform: translateX(70px); */
+  /* box-sizing: border-box; */
+  /* transition: 2s ease; */
+  z-index: 100;
+}
+
+
+.photo-about {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto 0 auto;
+  background-image: url(/img/amirkabir1.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  outline: 3px solid black;
+  border-radius: 50%;
+  transition: 0.2s ease-out;
+}
+
+.matn{
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  direction: rtl;
+  text-align: justify;
+}
+
+
+.matn p {
+  display: flex;
+  /* margin: 50px 0 0 0; */
+  font-weight: bolder;
+  /* color: rgb(168, 168, 168); */
+  color: rgb(214, 214, 214);
+  font-family: IRANSans;
+  /* direction: rtl; */
+  /* text-align: justify; */
+}
+
+.boro{
+  right: 0px;
+  /* text-align: justify; */
+}
+
+.matn span:nth-child(3){
+  animation: 0.7s linear infinite boroo;
+}
+
+@keyframes boroo {
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+.loading{
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  /* background-color: rgb(255, 255, 255); */
+  background-color: #9eafd8;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+}
+
+.dayere{
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.dayereanim1{
+  animation: 0.5s alternate infinite danimm;
+}
+
+@keyframes danimm {
+  0%{transform: translateX(0px);transform: translateY(0px);}
+  100%{
+    transform: translate(-50px,-30px)
+  }
+}
+
+.dayereanim2{
+  animation: 0.5s alternate infinite danimmm;
+  /* animation-play-state: paused; */
+}
+
+@keyframes danimmm {
+  0%{transform: translateX(0px);transform: translateY(0px);}
+  100%{
+    transform: translate(50px,-30px)
+  }
+}
+
+.hoverme{
+  position: absolute;
+  display: flex;
+  transform: translateY(-238px);
+  opacity: 0;
+  transition: 1s;
+}
+
+.hoverme p{
+  font-size: 50px;
+  direction: ltr;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .language-selector{
+    margin-top: 70px;
+    /* z-index: -1; */
+  }
+
+  .navDiv {
+    display: none;
+  }
+
+  nav {
+    position: static;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .khatd{
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 100%;
+    /* background-color: black; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .khat3 {
+    margin: 0  10px 0 10px;
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transform: translateY(10px);
+    transition: 200ms;
+  }
+
+  .khata {
+    margin: 0  10px 0 10px;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transform: translateY(20px);
+    transition: 0.2s;
+
+  }
+
+  .khatb {
+    margin: 0  10px 0 10px;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transform: translateY(30px) ;
+    transition: 0.2s;
+  }
+
+  .rotate{
+    animation: 0.2s ease-in rotate;
+  }
+
+  @keyframes rotate {
+    to{transform: rotate(-360deg);}
+  }
+
+  .fadeoutkhat{
+    animation: fadeout 400ms;
+  }
+
+  .fadeinkhat{
+    animation: fadein 400ms;
+  }
+
+  @keyframes fadein {
+    to{opacity: 1;}
+  }
+
+  .khatc {
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    /* background-color: red; */
+    opacity: 0.2;
+  }
+
+  /* .gradientan{
+    position: relative;
+    z-index: -2;
+  } */
+
+  .navmobile {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    height: 0;
+    background-color: #0093e9;
+    background-image: linear-gradient(90deg, #0093e9 0%, #80d0c7 100%);
+    transform: translateY(50px);
+    transition: 0.5s;
+    z-index: 1000;
+    /* overflow-y: auto; */
+  }
+
+  .navmDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: 500ms;
+    opacity: 0;
+    transition: 400ms;
+  }
+
+  /* .nas{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+  } */
+  
+  .navmobile::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .navmobile::-webkit-scrollbar-track {
+    background: #b1b8f2;
+  }
+  
+  .navmobile::-webkit-scrollbar-thumb {
+    background: #4161ac;
+  }
+  
+  .navmobile::-webkit-scrollbar-thumb:hover {
+    background: #2764ee;
+  }
+  
+  .navmobile::-webkit-scrollbar-thumb:active {
+    background: #004cff;
+  }
+
+  .divzabdar {
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 10px;
+    border: 1px solid firebrick;
+    top: 30;
+    right: 30;
+    transform: rotate(45deg);
+  }
+
+
+  .zabdar {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: black;
+    top: 30;
+    right: 30;
+    transform: rotate(45deg);
+    border-radius: 50%;
+  }
+
+  .zabdar::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: black;
+    transform: rotate(90deg);
+    border-radius: 50%;
+  }
+
+  .zabdar-click {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 40px;
+    top: 10;
+    right: 30;
+  }
+
+
+  .your-logo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50;
+  }
+
+
+  .navmDiv p {
+    margin: auto;
+    font-weight: bolder;
+  }
+
+  .navmDiv:active {
+    background-color: rgb(0, 0, 0, 0.5);
+    transform: scale(0.8);
+  }
+
+  .siahk {
+    /* background-color: #b59dd3; */
+  }
+
+  .sefidk {
+    /* background-color: #b3c4fc; */
+  }
+
+  .photo-about {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hoverme{
+    transform: translateY(-490px);
+  }
+
+  .hoverme p{
+    font-size: 40px;
+  }
+
+  /* .gradientan{
+    width: 300px;
+    max-width: 96%;
+    transform: translateX(101%);
+  } */
+
+  /* .about{
+    transform: translateX(101%);
+  } */
+
+  .moratab{
+    flex-direction: column;
+  }
+
+  #moratab2{
+    margin-top: 0;
+  }
+
+  .cartdiv{
+    height: auto;
+  }
+
+  .t1a{
+    margin-bottom: 100px;
+  }
+
+  .tozih{
+    /* width: 200px; */
+    margin-bottom: 100px;
+  }
+
+  footer{
+    flex-direction: column;
+    height: 700px;
+  }
+
+  .copyright{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:413px) {
+  .copyright{
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width:331px) {
+  .copyright{
+    display: none;
+  }
+
+  .links{
+    right: auto;
+    position: relative;
+    bottom: 0;
+    margin-top: 40px;
+  }
+
+}
+
+@media screen and (max-height:364px) {
+  .navmDiv{
+    font-size: 13px;
+  }
+}
