@@ -6,7 +6,40 @@ export default function Navigationbar(){
 
   const navRef = useRef(null);
 
+  var khatclick = document.getElementById("khatclick");
+  var navmobile = document.getElementById("navmobile");
+  var khat3 = document.getElementById("khat3");
+  var khata = document.getElementById("khata");
+  var khatb = document.getElementById("khatb");
+  var navmDiv = document.getElementsByClassName("navmDiv")
 
+  const navm = () => {
+    if(navmobile.style.height!="100vh"){
+      document.querySelector("html").style.overflowY="hidden"
+      navmobile.style.height="100vh"
+      navmobile.style.paddingBottom = "60px"
+      khat3.style.transform="translateY(20px) rotate(45deg)"
+      khata.style.opacity="0"
+      khatb.style.transform="translateY(20px) rotate(-45deg)"
+      // document.querySelector("body").style.position = "fixed";
+      // document.querySelector("html").style.overflow="hidden"
+      for (const element of navmDiv) {
+        element.style.opacity="1"
+      }
+    }
+    else{
+      document.querySelector("html").style.overflowY="auto"
+      navmobile.style.height="0px"
+      navmobile.style.padding="0px"
+      // document.querySelector("body").style.position = "absolute";
+      khat3.style.transform="translateY(10px) rotate(0deg)"
+      khatb.style.transform="translateY(30px) rotate(0deg)"
+      khata.style.opacity="1"
+      for (const element of navmDiv) {
+        element.style.opacity="0"
+      }
+    }
+  }
 
   useEffect(() => {
 
@@ -47,10 +80,7 @@ export default function Navigationbar(){
     var khatb = document.getElementById("khatb");
     var navmDiv = document.getElementsByClassName("navmDiv")
 
-
-    khatclick.addEventListener("click", () => {
-      // navmobile.style.height=(window.innerHeight - 50) + "px"
-      // document.querySelector("body").style.position = "fixed";
+    const navm = () => {
       if(navmobile.style.height!="100vh"){
         document.querySelector("html").style.overflowY="hidden"
         navmobile.style.height="100vh"
@@ -75,11 +105,12 @@ export default function Navigationbar(){
         for (const element of navmDiv) {
           element.style.opacity="0"
         }
-    
       }
-      
-    
-    });
+    }
+    khatclick.addEventListener("click",navm);
+
+    // const navmDiv = document.querySelectorAll("navmDiv")
+
 
     setTimeout(() => {
       nav.style.transition="1s"
@@ -93,7 +124,11 @@ export default function Navigationbar(){
 
   });
 
-
+  const Reload = () => {
+    setTimeout(() => {
+      window.location.reload()
+    }, "1");
+  }
   
   
   return(
@@ -112,8 +147,8 @@ export default function Navigationbar(){
     </nav>
 
     <div className="navmobile" id="navmobile" title="menu">
-            <Link to="/" className="navmDiv siahk"><p style={{color: "black"}} id="home2">Home</p></Link>
-            <Link to="/photos" className="navmDiv sefidk"><p style={{color: "black"}} id="photos2">Photos</p></Link>
+            <Link onClick={navm} to="/" className="navmDiv siahk"><p style={{color: "black"}} id="home2">Home</p></Link>
+            <Link onClick={navm} to="/photos" className="navmDiv sefidk"><p style={{color: "black"}} id="photos2">Photos</p></Link>
             <Link to="" className="navmDiv siahk"><p style={{color: "black"}} id="cms3">...Coming Soon</p></Link>
             <Link to="" className="navmDiv sefidk"><p style={{color: "black"}} id="cms4">...Coming Soon</p></Link>
     </div>
