@@ -461,11 +461,6 @@
     margin-bottom: 100px;
   }
 
-  footer{
-    flex-direction: column;
-    height: 700px;
-  }
-
   .copyright{
     font-size: 12px;
   }

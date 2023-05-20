@@ -817,7 +817,7 @@ a:hover {
 
   footer {
     flex-direction: column;
-    height: 700px;
+    height: 100vh;
   }
 
   .copyright{

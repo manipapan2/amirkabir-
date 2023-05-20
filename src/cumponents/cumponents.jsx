@@ -236,7 +236,7 @@ export function Card(props) {
 export function Footer(){
   return(
     <footer>
-            <div className="createdby">
+            {/* <div className="createdby"> */}
                  {/* <ul>
                     <ul>
                         <li style={{marginBottom: "10px",direction: "rtl"}}>Developer</li>
@@ -249,7 +249,7 @@ export function Footer(){
                         </div>
                     </ul>
                 </ul>  */}
-            </div>
+            {/* </div> */}
             <div className="createdby">
                 <ul>
                     <li style={{marginBottom: "10px"}}>Sources</li>
