@@ -21,6 +21,15 @@ export default function Photos(){
             observerr.observe(el)
           });
     }, "1");
+
+    const nav = document.querySelector("nav")
+
+    nav.style.transition="1s"
+    nav.style.transform="translateY(0px)"
+
+    setTimeout(() => {
+        nav.style.transition="all 0.3s ease 0s"
+    }, "100");
       
     }, [])
 
@@ -42,7 +51,7 @@ export default function Photos(){
         </div>
     </div>
 
-    <div className="htc"><p>Hover The Cards!</p></div>
+    <div className="htc"><p>Hover The Slides!</p></div>
 
     <div className="containerm">
         <div className="negah">

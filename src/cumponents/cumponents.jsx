@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, } from "react"
 import "./cumponents.css"
 
 export default function Navigationbar(){
@@ -47,7 +47,7 @@ export default function Navigationbar(){
     
 
     const navRadius = () => {
-      if(window.innerWidth > 900){
+      if(window.innerWidth >= 900){
         if(window.scrollY > 20){
           nav.style.borderTopRightRadius="25px"
           nav.style.borderBottomRightRadius="25px"
@@ -61,7 +61,7 @@ export default function Navigationbar(){
         }
       }
     
-      if(window.innerWidth < 900){
+      if(window.innerWidth <= 900){
         nav.style.borderTopRightRadius="0px"
         nav.style.borderBottomLeftRadius="0px"
         nav.style.borderBottomRightRadius="0px"
@@ -111,16 +111,10 @@ export default function Navigationbar(){
 
     // const navmDiv = document.querySelectorAll("navmDiv")
 
+    const Factory = () => {
+      document.querySelector("nav").style.transform="translateY(-70px)"
+    }
 
-    setTimeout(() => {
-      nav.style.transition="1s"
-      nav.style.transform="translateY(0px)"
-      setTimeout(() => {
-        nav.style.transition="all 0.3s ease 0s"
-      }, "1");
-      
-
-    }, "1s");
 
   });
 
@@ -128,6 +122,7 @@ export default function Navigationbar(){
     setTimeout(() => {
       window.location.reload()
     }, "1");
+
   }
   
   
@@ -187,7 +182,6 @@ export function Card(props) {
     const pup = pupRef.current;
 
     if (becharkhe % 2 == 0) {
-      console.log("yes");
       tozih1.classList.remove("t1a");
       tozih1.classList.add("tozih");
       neveshte1Div.style.transform = "rotateY(0deg)";
@@ -202,7 +196,6 @@ export function Card(props) {
         dokme.style.transition = "0.3s";
       }, "1");
     } else {
-      console.log("no");
       dokme.style.transition = "1s";
       setTimeout(() => {
         dokme.style.transition = "0.3s";
@@ -211,7 +204,7 @@ export function Card(props) {
       tozih1.classList.add("t1a");
       neveshte1Div.classList.remove("pi");
       neveshte1Div.classList.add("pia");
-      p1.style.borderRadius = "15px";
+      // p1.style.borderRadius = "15px";
       neveshte1Div.style.transform = "rotateY(-180deg)";
       neveshte2Div.style.transform = "rotateY(0deg)";
       dokme.style.transform = "rotateY(-180deg)";
@@ -223,7 +216,7 @@ export function Card(props) {
   }, [becharkhe]);
 
   return (
-    <div className="tozih marginTozih" id="tozih" onMouseEnter={tozihEnter} onMouseLeave={tozihLeave} ref={tozih1Ref}>
+    <div className="tozih marginTozih" id="tozih" onMouseEnter={tozihEnter} onMouseLeave={tozihLeave} ref={tozih1Ref} style={{marginBottom: `${props.marginBottom}`}}>
       <div className="neveshte1Div pi4" id="neveshte1Div" style={{ backgroundImage: `url(/img/${props.aks})` }} ref={neveshte1DivRef}><p className="p1" id="p1" ref={p1Ref}>{props.neveshte1}</p></div>
       <div className="dokme" id="dokme" onClick={() => { setbecharkhe(becharkhe + 1) }} ref={dokmeRef}>Show More</div>
       <div className="neveshte2Div" id="neveshte2Div" ref={neveshte2DivRef}><p className="pup" id="pup" ref={pupRef}>{props.neveshte2}</p><button className="dokmekam" onClick={() => { setbecharkhe(becharkhe + 1) }}>Back</button></div>
@@ -288,6 +281,7 @@ export function Footer(){
 
 export function ImageCard(props){
   const [coverVisible, setCoverVisible] = useState(true);
+  // const fuss = useContext(null)
 
   const cardEnter = () => {
     setCoverVisible(false);
@@ -298,5 +292,80 @@ export function ImageCard(props){
   };
   return(
     <div className={"imagesm"} style={{backgroundImage: `url(${props.background})`}}  onMouseEnter={cardEnter} onMouseLeave={cardLeave}><button><a href={props.aks} className="a" download>Click To Download</a></button><div className="nam" style={{display: coverVisible ? "flex" : "none"}}></div></div>
+  )
+}
+
+export let gl = 1
+export let zaban = "english"
+
+
+// const FuzzContext = React.createContext();
+
+export function Languageselector(){
+  // var gl = 1
+  // const fuzz = useContext(FuzzContext);
+  useEffect(() => {
+    
+
+  const farsi = document.getElementById("farsi")
+  const rang = document.getElementById("rang")
+  const english = document.getElementById("english")
+  // 1 = farsi - 1000
+  // 2 = farsi - 900
+  // 3 = english - 1000
+  // 4 = english - 900
+  // const aslkar = () => {
+    
+  // }
+
+  const Farsicmd = () => {
+    farsi.style.transition="0.5s"
+    farsi.style.color = "black"
+    rang.style.transition="0.5s"
+    rang.style.margin="0px"
+    english.style.transition="0.5s"
+    english.style.color="white"
+    if(window.innerWidth > 900){
+      gl = 3
+      console.log(gl)
+    }
+    else if(window.innerWidth <= 900){
+      gl = 4
+      console.log(gl)
+    }
+    zaban = "farsi"
+  }
+
+  const Englishcmd = () => {
+    farsi.style.color = "white"
+    rang.style.marginRight="50%"
+    english.style.color="black"
+    if(window.innerWidth > 900){
+      gl = 1
+      console.log(gl)
+
+
+    }
+    else if(window.innerWidth <= 900){
+      gl = 2
+      console.log(gl)
+    }
+    zaban = "english"
+
+  }
+
+  farsi.addEventListener("click",Farsicmd)
+  english.addEventListener("click",Englishcmd)
+  
+
+  }, [])
+
+  
+  return(
+    <div className="language-selector">
+        <div className="farsi" id="farsi"><p>فارسی</p></div>
+        <div className="english" id="english"><p>English</p></div>
+        <div className="rang" id="rang"></div>
+    </div>
   )
 }

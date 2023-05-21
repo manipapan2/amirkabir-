@@ -450,6 +450,11 @@
 
   .cartdiv{
     height: auto;
+    margin-bottom: 0px;
+  }
+
+  .moratab2{
+    margin-top: 150px;
   }
 
   .t1a{
@@ -458,12 +463,13 @@
 
   .tozih{
     /* width: 200px; */
-    margin-bottom: 100px;
+    margin-bottom: 150px;
   }
 
   .copyright{
     font-size: 12px;
   }
+
 }
 
 @media screen and (max-width:413px) {
