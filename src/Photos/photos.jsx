@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import "./photos.css"
-import { ImageCard } from "../cumponents/cumponents";
+import { ImageCard, ImageSlide } from "../cumponents/cumponents";
 
 export default function Photos(){
 
     useEffect(() => {
         const imagesm = document.querySelectorAll(".imagesm")
-        const cover = document.querySelectorAll("cover")
+        // const cover = document.querySelectorAll("cover")
       
     setTimeout(() => {
         const observerr = new IntersectionObserver((entries)=>{
@@ -39,15 +39,15 @@ export default function Photos(){
         <>
             <div className="container">
         <div className="carousel">
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir1.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir2.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir3.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir4.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir5.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir1.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir2.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir3.jpg"} className="a" download>Click To Download</a></button></div></div>
-            <div className="images"><div className="download"><button><a href={"/img/amirkabir4.jpg"} className="a" download>Click To Download</a></button></div></div>
+            <ImageSlide aks="/img/amirkabir1.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir2.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir3.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir4.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir5.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir1.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir2.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir3.jpg"></ImageSlide>
+            <ImageSlide aks="/img/amirkabir4.jpg"></ImageSlide>
         </div>
     </div>
 

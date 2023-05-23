@@ -111,19 +111,13 @@ export default function Navigationbar(){
 
     // const navmDiv = document.querySelectorAll("navmDiv")
 
-    const Factory = () => {
-      document.querySelector("nav").style.transform="translateY(-70px)"
-    }
+    // const Factory = () => {
+    //   document.querySelector("nav").style.transform="translateY(-70px)"
+    // }
 
 
   });
 
-  const Reload = () => {
-    setTimeout(() => {
-      window.location.reload()
-    }, "1");
-
-  }
   
   
   return(
@@ -154,7 +148,7 @@ export default function Navigationbar(){
 
 export function Card(props) {
   const [coverVisible, setCoverVisible] = useState(true);
-  const [becharkhe, setbecharkhe] = useState(0);
+  const [becharkhe, setbecharkhe] = useState(true);
 
   // Create refs for the elements
   const tozih1Ref = useRef(null);
@@ -164,13 +158,17 @@ export function Card(props) {
   const p1Ref = useRef(null);
   const pupRef = useRef(null);
 
-  const tozihEnter = () => {
-    setCoverVisible(false);
-  };
+  // const tozihEnter = () => {
+  //   setCoverVisible(false);
+  // };
 
-  const tozihLeave = () => {
-    setCoverVisible(true);
-  };
+  // const tozihLeave = () => {
+  //   setCoverVisible(true);
+  // };
+
+  const tozihEnterAndLeave = () => {
+    setCoverVisible((state)=>!state);
+  }
 
   useEffect(() => {
     // Use the refs to get the current DOM elements
@@ -178,10 +176,10 @@ export function Card(props) {
     const dokme = dokmeRef.current;
     const neveshte1Div = neveshte1DivRef.current;
     const neveshte2Div = neveshte2DivRef.current;
-    const p1 = p1Ref.current;
+    // const p1 = p1Ref.current;
     const pup = pupRef.current;
 
-    if (becharkhe % 2 == 0) {
+    if (becharkhe) {
       tozih1.classList.remove("t1a");
       tozih1.classList.add("tozih");
       neveshte1Div.style.transform = "rotateY(0deg)";
@@ -216,10 +214,10 @@ export function Card(props) {
   }, [becharkhe]);
 
   return (
-    <div className="tozih marginTozih" id="tozih" onMouseEnter={tozihEnter} onMouseLeave={tozihLeave} ref={tozih1Ref} style={{marginBottom: `${props.marginBottom}`}}>
+    <div className="tozih marginTozih" id="tozih" onMouseEnter={tozihEnterAndLeave} onMouseLeave={tozihEnterAndLeave} ref={tozih1Ref} style={{marginBottom: `${props.marginBottom}`}}>
       <div className="neveshte1Div pi4" id="neveshte1Div" style={{ backgroundImage: `url(/img/${props.aks})` }} ref={neveshte1DivRef}><p className="p1" id="p1" ref={p1Ref}>{props.neveshte1}</p></div>
-      <div className="dokme" id="dokme" onClick={() => { setbecharkhe(becharkhe + 1) }} ref={dokmeRef}>Show More</div>
-      <div className="neveshte2Div" id="neveshte2Div" ref={neveshte2DivRef}><p className="pup" id="pup" ref={pupRef}>{props.neveshte2}</p><button className="dokmekam" onClick={() => { setbecharkhe(becharkhe + 1) }}>Back</button></div>
+      <div className="dokme" id="dokme" onClick={() => { setbecharkhe((state)=>!state) }} ref={dokmeRef}>Show More</div>
+      <div className="neveshte2Div" id="neveshte2Div" ref={neveshte2DivRef}><p className="pup" id="pup" ref={pupRef}>{props.neveshte2}</p><button className="dokmekam" onClick={() => { setbecharkhe((state)=>!state)}}>Back</button></div>
       <div className="cover" style={{ display: coverVisible ? 'flex' : 'none' }}></div>
     </div>
   )
@@ -283,20 +281,30 @@ export function ImageCard(props){
   const [coverVisible, setCoverVisible] = useState(true);
   // const fuss = useContext(null)
 
-  const cardEnter = () => {
-    setCoverVisible(false);
-  };
-    
-  const cardLeave = () => {
-    setCoverVisible(true);
-  };
+  const cardEnterAndLeave = () => {
+    setCoverVisible((state)=>!state);
+  }
+
   return(
-    <div className={"imagesm"} style={{backgroundImage: `url(${props.background})`}}  onMouseEnter={cardEnter} onMouseLeave={cardLeave}><button><a href={props.aks} className="a" download>Click To Download</a></button><div className="nam" style={{display: coverVisible ? "flex" : "none"}}></div></div>
+    <div className={"imagesm"} style={{backgroundImage: `url(${props.background})`}}  onMouseEnter={cardEnterAndLeave} onMouseLeave={cardEnterAndLeave}><button><a href={props.aks} className="a" download>Click To Download</a></button><div className="nam" style={{display: coverVisible ? "flex" : "none"}}></div></div>
   )
 }
 
-export let gl = 1
-export let zaban = "english"
+export function ImageSlide(props){
+
+  return(
+    <div className="images"><div className="download"><button><a href={props.aks} className="a" download>Click To Download</a></button></div></div>
+  )
+}
+
+export let model = "";
+export const setmodel = (value) => {
+  model = value;
+};
+export let zaban = "";
+export const setzaban = (value) => {
+  zaban = value;
+};
 
 
 // const FuzzContext = React.createContext();
@@ -326,14 +334,15 @@ export function Languageselector(){
     english.style.transition="0.5s"
     english.style.color="white"
     if(window.innerWidth > 900){
-      gl = 3
-      console.log(gl)
+      setmodel(3)
+      console.log(model)
     }
     else if(window.innerWidth <= 900){
-      gl = 4
-      console.log(gl)
+      setmodel(4)
+      console.log(model)
+
     }
-    zaban = "farsi"
+    setzaban("farsi")
   }
 
   const Englishcmd = () => {
@@ -341,18 +350,31 @@ export function Languageselector(){
     rang.style.marginRight="50%"
     english.style.color="black"
     if(window.innerWidth > 900){
-      gl = 1
-      console.log(gl)
-
+      setmodel(1)
+      console.log(model)
 
     }
     else if(window.innerWidth <= 900){
-      gl = 2
-      console.log(gl)
+      setmodel(2)
+      console.log(model)
+
     }
-    zaban = "english"
+    setzaban("english")
 
   }
+
+  const resizezaban = () => {
+    if(window.getComputedStyle(rang).marginRight != "0px"){
+      setzaban("english")
+    }
+    else if(window.getComputedStyle(rang).marginRight == "0px"){
+      setzaban("farsi")
+    }
+  }
+
+  resizezaban();
+
+  window.addEventListener("resize", resizezaban)
 
   farsi.addEventListener("click",Farsicmd)
   english.addEventListener("click",Englishcmd)
