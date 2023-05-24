@@ -215,7 +215,7 @@ export function Card(props) {
 
   return (
     <div className="tozih marginTozih" id="tozih" onMouseEnter={tozihEnterAndLeave} onMouseLeave={tozihEnterAndLeave} ref={tozih1Ref} style={{marginBottom: `${props.marginBottom}`}}>
-      <div className="neveshte1Div pi4" id="neveshte1Div" style={{ backgroundImage: `url(/public/img/${props.aks})` }} ref={neveshte1DivRef}><p className="p1" id="p1" ref={p1Ref}>{props.neveshte1}</p></div>
+      <div className={`neveshte1Div pi4 ${props.class}`} id="neveshte1Div" ref={neveshte1DivRef}><p className="p1" id="p1" ref={p1Ref}>{props.neveshte1}</p></div>
       <div className="dokme" id="dokme" onClick={() => { setbecharkhe((state)=>!state) }} ref={dokmeRef}>Show More</div>
       <div className="neveshte2Div" id="neveshte2Div" ref={neveshte2DivRef}><p className="pup" id="pup" ref={pupRef}>{props.neveshte2}</p><button className="dokmekam" onClick={() => { setbecharkhe((state)=>!state)}}>Back</button></div>
       <div className="cover" style={{ display: coverVisible ? 'flex' : 'none' }}></div>

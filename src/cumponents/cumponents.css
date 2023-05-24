@@ -136,6 +136,21 @@ nav {
   box-shadow: 0px 0px 0px 5px #f5debf;
 }
 
+.card1{
+  background-image: url("/img/amirkabir3.jpg");
+}
+.card2{
+  background-image: url("/img/amirkabir2.jpg");
+
+}
+.card3{
+  background-image: url("/img/amirkabir4.jpg");
+
+}
+.card4{
+  background-image: url("/img/amirkabir5.jpg");
+}
+
 .cover {
   position: absolute;
   display: flex;
