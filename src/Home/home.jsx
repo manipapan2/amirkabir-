@@ -1,38 +1,21 @@
-import { useEffect } from "react"
-import { Card, setmodel, model, setzaban, zaban} from "../cumponents/cumponents"
+import { useEffect, useContext } from "react"
+import { Card, Model, Zaban} from "../cumponents/cumponents"
+import "/AutoTyping.js-master/dist/AutoTyping.min"
+// import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
 export default function Home(){
+  // const { model, setmodel } = useContext(Model);
+  // const { zaban, setzaban } = useContext(Zaban);
 
-
-
-    
+  
     useEffect(() => {
+
       const dayereanim1 = document.getElementById("dayereanim1")
       const dayereanim2 = document.getElementById("dayereanim2")
       const loading = document.getElementById("loading")
       const cards = document.querySelectorAll(".tozih")
       const hoverme = document.querySelectorAll(".hoverme")
 
-
-      const zabanm = () => {
-        if(zaban == "english" && window.innerWidth > 900){
-          setmodel("1")
-        }
-        else if(zaban == "english" && window.innerWidth <= 900){
-          setmodel("1")
-        }
-        else if(zaban == "farsi" && window.innerWidth > 900){
-          setmodel("3")
-        }
-        else if(zaban == "farsi" && window.innerWidth <= 900){
-          setmodel("4")
-        }
-      }
-
-      zabanm();
-
-      console.log(zaban)
-      console.log(model)
 
       window.scrollTo({ top: 0, behavior: "smooth" });
       document.querySelector("html").style.overflowY="hidden"
@@ -160,12 +143,98 @@ export default function Home(){
           }, 1000);
         }
       }
-    console.log(model)
+    // console.log(model)
     },[])
 
+  const {zaban, setzaban} = useContext(Zaban)
+  const {model, setmodel} = useContext(Model)
+
+    useEffect(() => {
+      const farsi = document.getElementById("farsi")
+      const rang = document.getElementById("rang")
+      const english = document.getElementById("english")
+    
+      const Farsicmd = () => {
+        farsi.style.transition="0.5s"
+        farsi.style.color = "black"
+        rang.style.transition="0.5s"
+        rang.style.margin="0px"
+        english.style.transition="0.5s"
+        english.style.color="white"
+        if(window.innerWidth > 900){
+          setmodel(2) 
+          // console.log(model)
+        }
+        else if(window.innerWidth <= 900){
+          setmodel(1)
+          // console.log(model)
+    
+        }
+        setzaban("farsi")
+      }
+    
+      const Englishcmd = () => {
+        farsi.style.color = "white"
+        rang.style.marginRight="50%"
+        english.style.color="black"
+        if(window.innerWidth > 900){
+          setmodel(3)
+          // console.log(model)
+    
+        }
+        else if(window.innerWidth <= 900){
+          setmodel(4)
+          // console.log(model)
+    
+        }
+        setzaban("english")
+    
+      }
+    
+      // const resizezaban = () => {
+      //   if(window.getComputedStyle(rang).marginRight != "0px"){
+      //     setzaban("english")
+      //   }
+      //   else if(window.getComputedStyle(rang).marginRight == "0px"){
+      //     setzaban("farsi")
+      //   }
+      // }
+
+      const resizemodel = () => {
+        if(zaban == "english" && window.innerWidth > 900){
+          setmodel(3)
+        }
+        else if(zaban == "english" && window.innerWidth <= 900){
+          setmodel(4)
+        }
+        else if(zaban == "farsi" && window.innerWidth > 900){
+          setmodel(1)
+        }
+        else if(zaban == "farsi" && window.innerWidth <= 900){
+          setmodel(2)
+        }
+      }
+    
+      resizemodel();
+    
+      window.addEventListener("resize", resizemodel)
+    
+      farsi.addEventListener("click",Farsicmd)
+      english.addEventListener("click",Englishcmd)
+      
+    }, )
+
+    useEffect(() => {
+    
+      console.log(model)
+      console.log(zaban)
+
+    }, [model])
     
     
 
+    
+    
     return(
         <>
             {/* <div className="gradientTest"></div> */}
@@ -182,7 +251,7 @@ export default function Home(){
 
             <div className="cartdiv">
                 <div className="moratab">
-                    <div className="hoverme"><p>{model!=1 ? "Hover The Cards!" : "not hover"}</p></div>
+                    <div className="hoverme"><p>{model == 3 ? "Hover The Cards" : model == 4 ? "Click The Cards" : model == 1 ? "موس را بر روی کارت ها ببرید" : model == 2 ? "بر روی کارت ها کلیک کنید" : "ERROR 404"}</p></div>
                     <Card class="card1" neveshte1="روایت‌ها آمده است که روزی قائم مقام از فرزندان خود سوال درسی می‌پرسد؛ اما هیچ‌ یک موفق به پاسخگویی نمی‌شوند. امیرکبیر جواب سوال را می‌دانست و به آن پاسخ می‌دهد؛ پس از این اتفاق قائم مقام به او انعامی می‌دهد." neveshte2="اما او قبول نمی‌کند و در عوض از قائم مقام می‌خواهد تا به او اجازه دهد به‌همراه فرزندان او از کلاس‌ها بهره ببرد. محمدتقی شیوه‌های منشی‌گری، نامه‌نگاری و صدور احکام دیوانی را از قائم مقام یاد گرفت تا اینکه قائم مقام پس از مدتی تحریر و نگارش پاره‌ای از احکام و نوشته‌ها را بر عهده محمدتقی‌ خان گذاشت."></Card>
                     <Card class="card2" marginBottom="0px" neveshte1="امیرکبیر پس از حدود سه سال صدارت با دسیسه درباریان و مادر شاه از سمت خود برکنار و به کاشان تبعید شد. او حدود ۴۰ روز بعد در باغ فین کاشان توسط علی خان حاجب‌الدوله به قتل رسید. روز ۲۰ دی، سالروز درگذشت امیرکبیر در تقویم «روز ملی توسعه» نام‌گذاری شده است." neveshte2="محمدتقی در دوره کودکی با فرزندان خردسال قائم مقام اول همبازی بود. مورخان نقل کرده‌اند که او مسئولیت انتقال ظروف غذا به حجره درس فرزندان قائم مقام را به عهده داشت و همین امر سبب می‌شد پس از بردن ظرف‌های غذا پشت در حجره مانده و به درس‌ها گوش فرا دهد."></Card>
                 </div>

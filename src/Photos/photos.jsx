@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import "./photos.css"
-import { ImageCard, ImageSlide } from "../cumponents/cumponents";
+import { ImageCard, ImageSlide, Model, Zaban } from "../cumponents/cumponents";
 
 export default function Photos(){
 
@@ -33,6 +33,74 @@ export default function Photos(){
       
     }, [])
 
+    const {zaban, setzaban} = useContext(Zaban)
+  const {model, setmodel} = useContext(Model)
+
+    useEffect(() => {
+      const farsi = document.getElementById("farsi")
+      const rang = document.getElementById("rang")
+      const english = document.getElementById("english")
+    
+      const Farsicmd = () => {
+        farsi.style.transition="0.5s"
+        farsi.style.color = "black"
+        rang.style.transition="0.5s"
+        rang.style.margin="0px"
+        english.style.transition="0.5s"
+        english.style.color="white"
+        if(window.innerWidth > 900){
+          setmodel(3) 
+          // console.log(model)
+        }
+        else if(window.innerWidth <= 900){
+          setmodel(4)
+          // console.log(model)
+    
+        }
+        setzaban("farsi")
+      }
+    
+      const Englishcmd = () => {
+        farsi.style.color = "white"
+        rang.style.marginRight="50%"
+        english.style.color="black"
+        if(window.innerWidth > 900){
+          setmodel(1)
+          // console.log(model)
+    
+        }
+        else if(window.innerWidth <= 900){
+          setmodel(2)
+          // console.log(model)
+    
+        }
+        setzaban("english")
+    
+      }
+    
+      const resizemodel = () => {
+        if(zaban == "english" && window.innerWidth > 900){
+          setmodel(3)
+        }
+        else if(zaban == "english" && window.innerWidth <= 900){
+          setmodel(4)
+        }
+        else if(zaban == "farsi" && window.innerWidth > 900){
+          setmodel(1)
+        }
+        else if(zaban == "farsi" && window.innerWidth <= 900){
+          setmodel(2)
+        }
+      }
+    
+      resizemodel();
+    
+      window.addEventListener("resize", resizemodel)
+    
+      farsi.addEventListener("click",Farsicmd)
+      english.addEventListener("click",Englishcmd)
+      
+    }, )
     
 
     return(
@@ -51,7 +119,7 @@ export default function Photos(){
         </div>
     </div>
 
-    <div className="htc"><p>Hover The Slides!</p></div>
+    <div className="htc"><p>{model == 3 ? "Hover The Slides" : model == 4 ? "Click The Cards" : model == 1 ? "موس را بر روی اسلاید ها ببرید" : model == 2 ? "بر روی کارت ها کلیک کنید" : "ERROR 404"}</p></div>
 
     <div className="containerm">
         <div className="negah">

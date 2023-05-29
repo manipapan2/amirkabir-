@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState, useRef, } from "react"
+import { useEffect, useState, useRef, createContext, useContext, } from "react"
 import "./cumponents.css"
 
 export default function Navigationbar(){
@@ -297,87 +297,82 @@ export function ImageSlide(props){
   )
 }
 
-export let model = "";
-export const setmodel = (value) => {
-  model = value;
-};
-export let zaban = "";
-export const setzaban = (value) => {
-  zaban = value;
-};
+
 
 
 // const FuzzContext = React.createContext();
 
 export function Languageselector(){
-  // var gl = 1
-  // const fuzz = useContext(FuzzContext);
+  // const {model, setmoel} = useContext(Model)
   useEffect(() => {
-    
+  // const {model, setmoel} = useContext(Model)
+
 
   const farsi = document.getElementById("farsi")
   const rang = document.getElementById("rang")
   const english = document.getElementById("english")
-  // 1 = farsi - 1000
-  // 2 = farsi - 900
-  // 3 = english - 1000
-  // 4 = english - 900
-  // const aslkar = () => {
+  // // 1 = farsi - 1000
+  // // 2 = farsi - 900
+  // // 3 = english - 1000
+  // // 4 = english - 900
+  // // const aslkar = () => {
     
+  // // }
+
+  // const Farsicmd = () => {
+  //   // const { model, setmodel } = useContext(Model);
+  //   // const { zaban, setzaban } = useContext(Zaban);
+  //   farsi.style.transition="0.5s"
+  //   farsi.style.color = "black"
+  //   rang.style.transition="0.5s"
+  //   rang.style.margin="0px"
+  //   english.style.transition="0.5s"
+  //   english.style.color="white"
+  //   if(window.innerWidth > 900){
+  //     // setmodel(3)
+  //     console.log(model)
+  //   }
+  //   else if(window.innerWidth <= 900){
+  //     // setmodel(4)
+  //     console.log(model)
+
+  //   }
+  //   // setzaban("farsi")
   // }
 
-  const Farsicmd = () => {
-    farsi.style.transition="0.5s"
-    farsi.style.color = "black"
-    rang.style.transition="0.5s"
-    rang.style.margin="0px"
-    english.style.transition="0.5s"
-    english.style.color="white"
-    if(window.innerWidth > 900){
-      setmodel(3)
-      console.log(model)
-    }
-    else if(window.innerWidth <= 900){
-      setmodel(4)
-      console.log(model)
+  // const Englishcmd = () => {
+  //   farsi.style.color = "white"
+  //   rang.style.marginRight="50%"
+  //   english.style.color="black"
+  //   if(window.innerWidth > 900){
+  //     // setmodel(1)
+  //     console.log(model)
 
-    }
-    setzaban("farsi")
-  }
+  //   }
+  //   else if(window.innerWidth <= 900){
+  //     // setmodel(2)
+  //     console.log(model)
 
-  const Englishcmd = () => {
-    farsi.style.color = "white"
-    rang.style.marginRight="50%"
-    english.style.color="black"
-    if(window.innerWidth > 900){
-      setmodel(1)
-      console.log(model)
+  //   }
+  //   // setzaban("english")
 
-    }
-    else if(window.innerWidth <= 900){
-      setmodel(2)
-      console.log(model)
+  // }
 
-    }
-    setzaban("english")
+  // // const resizezaban = () => {
+  // //   if(window.getComputedStyle(rang).marginRight != "0px"){
+  // //     setzaban("english")
+  // //   }
+  // //   else if(window.getComputedStyle(rang).marginRight == "0px"){
+  // //     setzaban("farsi")
+  // //   }
+  // // }
 
-  }
+  // // resizezaban();
 
-  const resizezaban = () => {
-    if(window.getComputedStyle(rang).marginRight != "0px"){
-      setzaban("english")
-    }
-    else if(window.getComputedStyle(rang).marginRight == "0px"){
-      setzaban("farsi")
-    }
-  }
+  // // window.addEventListener("resize", resizezaban)
 
-  resizezaban();
-
-  window.addEventListener("resize", resizezaban)
-
-  farsi.addEventListener("click",Farsicmd)
-  english.addEventListener("click",Englishcmd)
+  // farsi.addEventListener("click",Farsicmd)
+  // english.addEventListener("click",Englishcmd)
   
 
   }, [])
@@ -391,3 +386,7 @@ export function Languageselector(){
     </div>
   )
 }
+
+
+export const Model = createContext(null);
+export const Zaban = createContext(null);
