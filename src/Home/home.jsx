@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react"
 import { Card, Model, Zaban} from "../cumponents/cumponents"
-// import "/AutoTyping.js-master/dist/AutoTyping.min"
+import AutoTyping from "/AutoTyping.js-master/dist/AutoTyping.min.js"
 // import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
 export default function Home(){
