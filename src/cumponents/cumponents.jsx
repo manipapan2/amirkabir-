@@ -16,37 +16,40 @@ export default function Navigationbar(){
   //   document.querySelector("#root").style.overflow="none"
   // }, "5000");
 
-  var khatclick = document.getElementById("khatclick");
-  var navmobile = document.getElementById("navmobile");
-  var khat3 = document.getElementById("khat3");
-  var khata = document.getElementById("khata");
-  var khatb = document.getElementById("khatb");
-  var navmDiv = document.getElementsByClassName("navmDiv")
+  // var khatclick = document.getElementById("khatclick");
+    var navmobile = document.getElementById("navmobile");
+    var khat3 = document.getElementById("khat3");
+    var khata = document.getElementById("khata");
+    var khatb = document.getElementById("khatb");
+    var navmDiv = document.getElementsByClassName("navmDiv")
 
-  const navm = () => {
-    if(navmobile.style.height!="100vh"){
-      document.querySelector("html").style.overflowY="hidden"
-      navmobile.style.height="100vh"
-      navmobile.style.paddingBottom = "60px"
-      khat3.style.transform="translateY(20px) rotate(45deg)"
-      khata.style.opacity="0"
-      khatb.style.transform="translateY(20px) rotate(-45deg)"
-      for (const element of navmDiv) {
-        element.style.opacity="1"
+    const navm = () => {
+      if(navmobile.style.height!="100vh"){
+        document.querySelector("html").style.overflowY="hidden"
+        navmobile.style.height="100vh"
+        navmobile.style.paddingBottom = "60px"
+        khat3.style.transform="translateY(20px) rotate(45deg)"
+        khata.style.opacity="0"
+        khatb.style.transform="translateY(20px) rotate(-45deg)"
+        for (const element of navmDiv) {
+          element.style.opacity="1"
+        }
       }
-    }
-    else{
-      document.querySelector("html").style.overflowY="auto"
-      navmobile.style.height="0px"
-      navmobile.style.padding="0px"
-      khat3.style.transform="translateY(10px) rotate(0deg)"
-      khatb.style.transform="translateY(30px) rotate(0deg)"
-      khata.style.opacity="1"
-      for (const element of navmDiv) {
-        element.style.opacity="0"
+      else{
+        document.querySelector("html").style.overflowY="auto"
+        navmobile.style.height="0px"
+        navmobile.style.padding="0px"
+        khat3.style.transform="translateY(10px) rotate(0deg)"
+        khatb.style.transform="translateY(30px) rotate(0deg)"
+        khata.style.opacity="1"
+        for (const element of navmDiv) {
+          element.style.opacity="0"
+        }
       }
+      console.log("oo")
     }
-  }
+
+    // khatclick.addEventListener("click",navm);
 
   useEffect(() => {
 
@@ -82,42 +85,9 @@ export default function Navigationbar(){
     window.addEventListener("resize",navRadius)
 
 
-    var khatclick = document.getElementById("khatclick");
-    var navmobile = document.getElementById("navmobile");
-    var khat3 = document.getElementById("khat3");
-    var khata = document.getElementById("khata");
-    var khatb = document.getElementById("khatb");
-    var navmDiv = document.getElementsByClassName("navmDiv")
-
-    const navm = () => {
-      if(navmobile.style.height!="100vh"){
-        document.querySelector("html").style.overflowY="hidden"
-        navmobile.style.height="100vh"
-        navmobile.style.paddingBottom = "60px"
-        khat3.style.transform="translateY(20px) rotate(45deg)"
-        khata.style.opacity="0"
-        khatb.style.transform="translateY(20px) rotate(-45deg)"
-        for (const element of navmDiv) {
-          element.style.opacity="1"
-        }
-      }
-      else{
-        document.querySelector("html").style.overflowY="auto"
-        navmobile.style.height="0px"
-        navmobile.style.padding="0px"
-        khat3.style.transform="translateY(10px) rotate(0deg)"
-        khatb.style.transform="translateY(30px) rotate(0deg)"
-        khata.style.opacity="1"
-        for (const element of navmDiv) {
-          element.style.opacity="0"
-        }
-      }
-    }
-
-    khatclick.addEventListener("click",navm);
-
 
   });
+  
 
   
   
@@ -129,7 +99,7 @@ export default function Navigationbar(){
       <div className="navDiv"><p>Coming Soon...</p></div>
       <div className="navDiv"><Link to="/photos">Photos</Link></div>
       <div className="navDiv"><Link to="/">Home</Link></div>
-      <div className="khatd" id="khatclick">
+      <div className="khatd" id="khatclick" onClick={navm}>
         <div className="khat3" id="khat3"></div>
         <div className="khata" id="khata"></div>
         <div className="khatb" id="khatb"></div>
