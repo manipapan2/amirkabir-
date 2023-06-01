@@ -40,6 +40,15 @@
   font-family: IRANSans;
 }
 
+#cur{
+  display: flex;
+  width: 1px;
+  height: 14px;
+  background-color: black;
+  margin: 0;
+  margin-left: 0;
+}
+
 
 .gradientan{
   position: relative;

@@ -46,7 +46,6 @@ export default function Navigationbar(){
           element.style.opacity="0"
         }
       }
-      console.log("oo")
     }
 
     // khatclick.addEventListener("click",navm);

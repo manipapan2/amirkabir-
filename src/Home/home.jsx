@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react"
 import { Card, Model, Zaban} from "../cumponents/cumponents"
-// import AutoTyping from "/AutoTyping.js-master/dist/AutoTyping.min.js"
+import AutoTyping from "/AutoTyping.js-master/dist/AutoTyping.min.js"
 // import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
 export default function Home(){
@@ -117,6 +117,7 @@ export default function Home(){
         }
       }
 
+
       const typing = () => {
         document.querySelector(".pos").setAttribute("id", "pasl");
         const myText = new AutoTyping({
@@ -131,7 +132,7 @@ export default function Home(){
           document.querySelector(".pos").removeAttribute("id");
         }, 1000);
       }
-    
+
       const donetype = () => {
         if (document.querySelector(".boro").innerHTML == text) {
           setTimeout(() => {
@@ -141,6 +142,24 @@ export default function Home(){
         }
       }
     },[])
+
+    // const cur = document.getElementById("cur")
+
+
+    // var text =
+    //   "میرزا محمد تقی‌خان فراهانی (۱۲۲۲-۱۲۶۸ق) (۱۱۸۵-۱۲۳۰ش) مشهور به امیرکبیر، صدراعظم‌ ایران در دوره ناصرالدین شاه قاجار. وی در دوره صدارت سه سال و سه ماه (۳۹ ماهه) خود، اصلاحاتی را در زمینه‌های آموزشی، اجتماعی و سیاسی ایران آغاز کرد. امیرکبیر دارُالفُنون را بنیان نهاد، مسجد و مدرسه دینی ساخت، بست‌نشینی در بیوت علما و تعزیه‌خوانی را محدود و شورش بابی‌ها را سرکوب کرد. او با دسیسه اطرافیان شاه از مقام خود برکنار و به کاشان تبعید شد و به دستور شاه به قتل رسید. قبر وی در حرم امام حسین(ع) قرار دارد.";
+
+    //   var i = 0;
+    //   var speed = 20;
+    // const Cure = () =>{
+    //   if (i < text.length) {
+    //     document.getElementById("boro").innerHTML += text.charAt(i);
+    //     i++;
+    //     setTimeout(Cure, speed);
+    //   }
+    // }
+
+    // Cure();
 
   const {zaban, setzaban} = useContext(Zaban)
   const {model, setmodel} = useContext(Model)
@@ -216,7 +235,7 @@ export default function Home(){
                 <div className="about" id="about">
                     <div className="types"><p id="types" style={{direction: "rtl"}}></p></div>
                     <div className="photo-about" id="photoabout"></div>
-                    <div className="matn"><p ><span  className="pos" ><span className="boro" id="boro"></span></span></p></div> 
+                    <div className="matn"><p ><span  className="pos" ><span className="boro" id="boro"></span><span></span></span></p></div> 
                 </div>
             </div>
 
