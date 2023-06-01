@@ -4,8 +4,6 @@ import AutoTyping from "/AutoTyping.js-master/dist/AutoTyping.min.js"
 // import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
 export default function Home(){
-  // const { model, setmodel } = useContext(Model);
-  // const { zaban, setzaban } = useContext(Zaban);
 
   
     useEffect(() => {
@@ -103,7 +101,6 @@ export default function Home(){
         typeWriter()
       }, "5000");
 
-      
 
 
       var text =
@@ -143,7 +140,6 @@ export default function Home(){
           }, 1000);
         }
       }
-    // console.log(model)
     },[])
 
   const {zaban, setzaban} = useContext(Zaban)
@@ -163,12 +159,9 @@ export default function Home(){
         english.style.color="white"
         if(window.innerWidth > 900){
           setmodel(2) 
-          // console.log(model)
         }
         else if(window.innerWidth <= 900){
           setmodel(1)
-          // console.log(model)
-    
         }
         setzaban("farsi")
       }
@@ -179,26 +172,14 @@ export default function Home(){
         english.style.color="black"
         if(window.innerWidth > 900){
           setmodel(3)
-          // console.log(model)
-    
         }
         else if(window.innerWidth <= 900){
           setmodel(4)
-          // console.log(model)
-    
         }
         setzaban("english")
     
       }
     
-      // const resizezaban = () => {
-      //   if(window.getComputedStyle(rang).marginRight != "0px"){
-      //     setzaban("english")
-      //   }
-      //   else if(window.getComputedStyle(rang).marginRight == "0px"){
-      //     setzaban("farsi")
-      //   }
-      // }
 
       const resizemodel = () => {
         if(zaban == "english" && window.innerWidth > 900){
@@ -223,13 +204,6 @@ export default function Home(){
       english.addEventListener("click",Englishcmd)
       
     }, )
-
-    useEffect(() => {
-    
-      console.log(model)
-      console.log(zaban)
-
-    }, [model])
     
     
 
@@ -237,9 +211,7 @@ export default function Home(){
     
     return(
         <>
-            {/* <div className="gradientTest"></div> */}
-            {/* <div className="about2"></div> */}
-
+        <div className="aslflow">
             <div className="gradientan" id="gradientan">
                 <div className="about" id="about">
                     <div className="types"><p id="types" style={{direction: "rtl"}}></p></div>
@@ -268,6 +240,7 @@ export default function Home(){
             <div className="dayere"></div>
             <div className="dayere" id="dayereanim2"></div>
         </div>
+      </div>  
         </>
     )
 }

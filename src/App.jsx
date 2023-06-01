@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
-import { createContext, useContext, useState } from 'react'
+import { useState } from 'react'
 import NavigationBar, { Footer, Languageselector, Model, Zaban} from "./cumponents/cumponents";
 import Home from "./Home/home";
 import Photos from "./Photos/photos";

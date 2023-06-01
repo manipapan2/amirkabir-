@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState, useRef, createContext, useContext, } from "react"
+import { useEffect, useState, useRef, createContext, } from "react"
 import "./cumponents.css"
 
 export default function Navigationbar(){
 
   const navRef = useRef(null);
+
+  // setTimeout(() => {
+    // document.querySelector("body").style.overflow="hidden"
+    // document.querySelector("#root").style.overflow="hidden"
+  // }, "5000");
+
+  // setTimeout(() => {
+  //   document.querySelector("body").style.overflow="none"
+  //   document.querySelector("#root").style.overflow="none"
+  // }, "5000");
 
   var khatclick = document.getElementById("khatclick");
   var navmobile = document.getElementById("navmobile");
@@ -21,8 +31,6 @@ export default function Navigationbar(){
       khat3.style.transform="translateY(20px) rotate(45deg)"
       khata.style.opacity="0"
       khatb.style.transform="translateY(20px) rotate(-45deg)"
-      // document.querySelector("body").style.position = "fixed";
-      // document.querySelector("html").style.overflow="hidden"
       for (const element of navmDiv) {
         element.style.opacity="1"
       }
@@ -31,7 +39,6 @@ export default function Navigationbar(){
       document.querySelector("html").style.overflowY="auto"
       navmobile.style.height="0px"
       navmobile.style.padding="0px"
-      // document.querySelector("body").style.position = "absolute";
       khat3.style.transform="translateY(10px) rotate(0deg)"
       khatb.style.transform="translateY(30px) rotate(0deg)"
       khata.style.opacity="1"
@@ -44,6 +51,8 @@ export default function Navigationbar(){
   useEffect(() => {
 
     const nav = navRef.current
+    // const nav = document.getElementById("navi")
+
     
 
     const navRadius = () => {
@@ -88,8 +97,6 @@ export default function Navigationbar(){
         khat3.style.transform="translateY(20px) rotate(45deg)"
         khata.style.opacity="0"
         khatb.style.transform="translateY(20px) rotate(-45deg)"
-        // document.querySelector("body").style.position = "fixed";
-        // document.querySelector("html").style.overflow="hidden"
         for (const element of navmDiv) {
           element.style.opacity="1"
         }
@@ -98,7 +105,6 @@ export default function Navigationbar(){
         document.querySelector("html").style.overflowY="auto"
         navmobile.style.height="0px"
         navmobile.style.padding="0px"
-        // document.querySelector("body").style.position = "absolute";
         khat3.style.transform="translateY(10px) rotate(0deg)"
         khatb.style.transform="translateY(30px) rotate(0deg)"
         khata.style.opacity="1"
@@ -107,13 +113,8 @@ export default function Navigationbar(){
         }
       }
     }
+
     khatclick.addEventListener("click",navm);
-
-    // const navmDiv = document.querySelectorAll("navmDiv")
-
-    // const Factory = () => {
-    //   document.querySelector("nav").style.transform="translateY(-70px)"
-    // }
 
 
   });
@@ -122,7 +123,7 @@ export default function Navigationbar(){
   
   return(
     <>
-    <nav ref={navRef}>
+    <nav ref={navRef} id="navi">
       <div className="your-logo" id="marginezafe"></div>
       <div className="navDiv"><p>Coming Soon...</p></div>
       <div className="navDiv"><p>Coming Soon...</p></div>
@@ -158,25 +159,16 @@ export function Card(props) {
   const p1Ref = useRef(null);
   const pupRef = useRef(null);
 
-  // const tozihEnter = () => {
-  //   setCoverVisible(false);
-  // };
-
-  // const tozihLeave = () => {
-  //   setCoverVisible(true);
-  // };
 
   const tozihEnterAndLeave = () => {
     setCoverVisible((state)=>!state);
   }
 
   useEffect(() => {
-    // Use the refs to get the current DOM elements
     const tozih1 = tozih1Ref.current;
     const dokme = dokmeRef.current;
     const neveshte1Div = neveshte1DivRef.current;
     const neveshte2Div = neveshte2DivRef.current;
-    // const p1 = p1Ref.current;
     const pup = pupRef.current;
 
     if (becharkhe) {
@@ -227,20 +219,6 @@ export function Card(props) {
 export function Footer(){
   return(
     <footer>
-            {/* <div className="createdby"> */}
-                 {/* <ul>
-                    <ul>
-                        <li style={{marginBottom: "10px",direction: "rtl"}}>Developer</li>
-                        <li className="kochikf"><Link to="https://github.com/manipapan2" rel="noopener noreferrer" style="direction: ltr;">manipapan2</Link></li>
-                        <div className="links" id="links">
-                            <i className="fa fa-twitter" id="twitter"></i>
-                            <i className="fa fa-instagram" id="instagram"></i>
-                            <Link to="https://github.com/manipapan2" rel="noopener noreferrer"><i className="fa fa-github" id="github"></i></Link>
-                            <i className="fa fa-youtube-play" id="youtube"></i>
-                        </div>
-                    </ul>
-                </ul>  */}
-            {/* </div> */}
             <div className="createdby">
                 <ul>
                     <li style={{marginBottom: "10px"}}>Sources</li>
@@ -279,7 +257,6 @@ export function Footer(){
 
 export function ImageCard(props){
   const [coverVisible, setCoverVisible] = useState(true);
-  // const fuss = useContext(null)
 
   const cardEnterAndLeave = () => {
     setCoverVisible((state)=>!state);
@@ -300,82 +277,12 @@ export function ImageSlide(props){
 
 
 
-// const FuzzContext = React.createContext();
 
 export function Languageselector(){
-  // const {model, setmoel} = useContext(Model)
-  useEffect(() => {
-  // const {model, setmoel} = useContext(Model)
-
-
-  const farsi = document.getElementById("farsi")
-  const rang = document.getElementById("rang")
-  const english = document.getElementById("english")
   // // 1 = farsi - 1000
   // // 2 = farsi - 900
   // // 3 = english - 1000
   // // 4 = english - 900
-  // // const aslkar = () => {
-    
-  // // }
-
-  // const Farsicmd = () => {
-  //   // const { model, setmodel } = useContext(Model);
-  //   // const { zaban, setzaban } = useContext(Zaban);
-  //   farsi.style.transition="0.5s"
-  //   farsi.style.color = "black"
-  //   rang.style.transition="0.5s"
-  //   rang.style.margin="0px"
-  //   english.style.transition="0.5s"
-  //   english.style.color="white"
-  //   if(window.innerWidth > 900){
-  //     // setmodel(3)
-  //     console.log(model)
-  //   }
-  //   else if(window.innerWidth <= 900){
-  //     // setmodel(4)
-  //     console.log(model)
-
-  //   }
-  //   // setzaban("farsi")
-  // }
-
-  // const Englishcmd = () => {
-  //   farsi.style.color = "white"
-  //   rang.style.marginRight="50%"
-  //   english.style.color="black"
-  //   if(window.innerWidth > 900){
-  //     // setmodel(1)
-  //     console.log(model)
-
-  //   }
-  //   else if(window.innerWidth <= 900){
-  //     // setmodel(2)
-  //     console.log(model)
-
-  //   }
-  //   // setzaban("english")
-
-  // }
-
-  // // const resizezaban = () => {
-  // //   if(window.getComputedStyle(rang).marginRight != "0px"){
-  // //     setzaban("english")
-  // //   }
-  // //   else if(window.getComputedStyle(rang).marginRight == "0px"){
-  // //     setzaban("farsi")
-  // //   }
-  // // }
-
-  // // resizezaban();
-
-  // // window.addEventListener("resize", resizezaban)
-
-  // farsi.addEventListener("click",Farsicmd)
-  // english.addEventListener("click",Englishcmd)
-  
-
-  }, [])
 
   
   return(

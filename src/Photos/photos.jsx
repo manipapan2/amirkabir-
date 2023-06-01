@@ -6,7 +6,6 @@ export default function Photos(){
 
     useEffect(() => {
         const imagesm = document.querySelectorAll(".imagesm")
-        // const cover = document.querySelectorAll("cover")
       
     setTimeout(() => {
         const observerr = new IntersectionObserver((entries)=>{
@@ -20,6 +19,17 @@ export default function Photos(){
         imagesm.forEach((el) => {
             observerr.observe(el)
           });
+
+          const observerrr = new IntersectionObserver((entries)=>{
+            entries.forEach((entries)=>{
+              if(entries.isIntersecting){
+                entries.target.style.opacity="1"
+                entries.target.style.transform="translateX(0px)"
+              }
+            })
+          })
+
+          observerrr.observe(document.querySelector(".htc2"))
     }, "1");
 
     const nav = document.querySelector("nav")
@@ -50,12 +60,9 @@ export default function Photos(){
         english.style.color="white"
         if(window.innerWidth > 900){
           setmodel(3) 
-          // console.log(model)
         }
         else if(window.innerWidth <= 900){
           setmodel(4)
-          // console.log(model)
-    
         }
         setzaban("farsi")
       }
@@ -66,13 +73,9 @@ export default function Photos(){
         english.style.color="black"
         if(window.innerWidth > 900){
           setmodel(1)
-          // console.log(model)
-    
         }
         else if(window.innerWidth <= 900){
-          setmodel(2)
-          // console.log(model)
-    
+          setmodel(2)    
         }
         setzaban("english")
     
@@ -123,8 +126,6 @@ export default function Photos(){
 
     <div className="containerm">
         <div className="negah">
-            {/* <div className="imagesm imagesm1" onMouseEnter={tozihEnter} onMouseLeave={tozihLeave} id="imagesm1"><button><a href={"/img/amirkabir1.jpg"} className="a" download>Click To Download</a></button><div className="nam" id="nam1"></div></div> */}
-            {/* <div className="imagesm imagesm2"id="imagesm2"><button><a href={"/img/amirkabir2.jpg"} className="a" download>Click To Download</a></button><div className="nam" id="nam2"></div></div> */}
             <ImageCard aks="/img/amirkabir1.jpg" background="/img/amirkabir1.jpg"></ImageCard>
             <ImageCard aks="/img/amirkabir2.jpg" background="/img/amirkabir2.jpg"></ImageCard>
         </div>
@@ -139,6 +140,9 @@ export default function Photos(){
             <ImageCard aks="/img/amirkabir1.jpg" background="/img/amirkabir1.jpg"></ImageCard>
         </div>
     </div>
+
+    <div className="htc2"><p>{model == 3 ? "Hover The Slides" : model == 4 ? "Click The Cards" : model == 1 ? "موس را بر روی اسلاید ها ببرید" : model == 2 ? "بر روی کارت ها کلیک کنید" : "ERROR 404"}</p></div>
+
         </>
     )
 }
