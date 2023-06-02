@@ -85,6 +85,8 @@ nav {
   display: none;
 }
 
+
+
 .your-logo {
   display: flex;
   width: 46px;
@@ -727,6 +729,12 @@ a:hover {
     transition: 0.5s;
     z-index: 1000;
     /* overflow-y: auto; */
+  }
+
+  .navmobile button{
+    background-color: transparent;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
   }
 
   .navmDiv {

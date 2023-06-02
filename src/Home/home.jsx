@@ -7,6 +7,15 @@ import AutoTyping from "./AutoTyping.js-master/"
 import "./home.css"
 export default function Home(){
 
+
+  setTimeout(() => {
+  var navmDiv = document.getElementsByClassName("navmDiv")
+  var navmobile = document.getElementById("navmobile");
+  navmobile.style.transition="0.5s"
+      for (const element of navmDiv) {
+        element.style.transition="0.5s"
+      }
+  }, "100");
   
     useEffect(() => {
 
@@ -15,6 +24,13 @@ export default function Home(){
       const loading = document.getElementById("loading")
       const cards = document.querySelectorAll(".tozih")
       const hoverme = document.querySelectorAll(".hoverme")
+  //     var navmDiv = document.getElementsByClassName("navmDiv")
+  // var navmobile = document.getElementById("navmobile");
+
+  // navmobile.style.transition="0.5s"
+  //       for (const element of navmDiv) {
+  //         element.style.transition="0.5s"
+  //       }
 
 
       window.scrollTo({ top: 0, behavior: "smooth" });
