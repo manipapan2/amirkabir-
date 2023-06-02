@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useEffect, useState, useRef, createContext, } from "react"
 import "./cumponents.css"
 
@@ -47,6 +47,39 @@ export default function Navigationbar(){
         }
       }
     }
+
+    const Navkhas = () => {
+      const location = useLocation()
+
+      if(location.pathname == "/"){
+        if(navmobile.style.height!="100vh"){
+          document.querySelector("html").style.overflowY="hidden"
+          navmobile.style.height="100vh"
+          navmobile.style.paddingBottom = "60px"
+          khat3.style.transform="translateY(20px) rotate(45deg)"
+          khata.style.opacity="0"
+          khatb.style.transform="translateY(20px) rotate(-45deg)"
+          for (const element of navmDiv) {
+            element.style.opacity="1"
+          }
+        }
+        else{
+          document.querySelector("html").style.overflowY="auto"
+          navmobile.style.height="0px"
+          navmobile.style.padding="0px"
+          khat3.style.transform="translateY(10px) rotate(0deg)"
+          khatb.style.transform="translateY(30px) rotate(0deg)"
+          khata.style.opacity="1"
+          for (const element of navmDiv) {
+            element.style.opacity="0"
+          }
+        }
+      }
+      else{
+        return false
+      }
+    }
+
 
     // khatclick.addEventListener("click",navm);
 
@@ -106,7 +139,7 @@ export default function Navigationbar(){
     </nav>
 
     <div className="navmobile" id="navmobile" title="menu">
-            <Link onClick={navm} to="/" className="navmDiv siahk"><p style={{color: "black"}} id="home2">Home</p></Link>
+            <Link onClick={Navkhas} to="/" className="navmDiv siahk"><p style={{color: "black"}} id="home2">Home</p></Link>
             <Link onClick={navm} to="/photos" className="navmDiv sefidk"><p style={{color: "black"}} id="photos2">Photos</p></Link>
             <Link to="" className="navmDiv siahk"><p style={{color: "black"}} id="cms3">...Coming Soon</p></Link>
             <Link to="" className="navmDiv sefidk"><p style={{color: "black"}} id="cms4">...Coming Soon</p></Link>
