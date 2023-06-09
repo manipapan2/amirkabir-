@@ -30,5 +30,8 @@
         "AutoTyping.js-master/dist/AutoTyping.min.js"
       ]
     }
-  }
+  },
+  "main": "index.js",
+  "author": "manipapan2 <manipapan2@gmail.com>",
+  "license": "MIT"
 }
