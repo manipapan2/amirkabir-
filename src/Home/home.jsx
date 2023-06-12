@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react"
 import { Card, Model, Zaban} from "../cumponents/cumponents"
 // import AutoTyping from "/AutoTyping.js-master/dist/AutoTyping.min.js"
-import AutoTyping from "./AutoTyping.js-master/"
+// import AutoTyping from "./AutoTyping.js-master/"
 // import AutoTyping from '../dist/AutoTyping.min.js'
 // import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
@@ -213,29 +213,29 @@ export default function Home(){
       
 
 
-      const typing = () => {
-        document.querySelector(".pos").setAttribute("id", "pasl");
-        const myText = new AutoTyping({
-          id: "pasl",
+      // const typing = () => {
+      //   document.querySelector(".pos").setAttribute("id", "pasl");
+      //   const myText = new AutoTyping({
+      //     id: "pasl",
     
-          typeText: ["asd", "salam salam"],
+      //     typeText: ["asd", "salam salam"],
     
-          typeSpeed: 20,
-        }).stop();
+      //     typeSpeed: 20,
+      //   }).stop();
     
-        setTimeout(() => {
-          document.querySelector(".pos").removeAttribute("id");
-        }, 1000);
-      }
+      //   setTimeout(() => {
+      //     document.querySelector(".pos").removeAttribute("id");
+      //   }, 1000);
+      // }
 
-      const donetype = () => {
-        if (document.querySelector(".boro").innerHTML == text) {
-          setTimeout(() => {
-            var second = document.querySelector(".matn span:nth-child(3)");
-            second.style.display = "none";
-          }, 1000);
-        }
-      }
+      // const donetype = () => {
+      //   if (document.querySelector(".boro").innerHTML == text) {
+      //     setTimeout(() => {
+      //       var second = document.querySelector(".matn span:nth-child(3)");
+      //       second.style.display = "none";
+      //     }, 1000);
+      //   }
+      // }
     },[])
 
     useEffect(() => {
