@@ -5,9 +5,11 @@ import AutoTyping from "./AutoTyping.js-master/"
 // import AutoTyping from '../dist/AutoTyping.min.js'
 // import "/AutoTyping.js-master/dist/AutoTyping.min.js"
 import "./home.css"
+import { useState } from "react";
 export default function Home(){
 
-
+  const [textt, settextt] = useState("میرزا محمدتقی‌خان فراهانی")
+  const [isTexttUpdated, setIsTexttUpdated] = useState(false);
   setTimeout(() => {
   var navmDiv = document.getElementsByClassName("navmDiv")
   var navmobile = document.getElementById("navmobile");
@@ -17,6 +19,90 @@ export default function Home(){
       }
   }, "100");
   
+  var i = 0;
+      var speed = 85;
+
+      
+
+      // var text = "امیر کبیر"
+
+      const typeWriter1 = () => {
+        if (i < textt.length) {
+          console.log("top " + textt)
+          document.getElementById("types").innerHTML += textt.charAt(i);
+          i++;
+          setTimeout(typeWriter1, speed);
+          // console.log(i)
+          // donetype();
+        }
+        else{
+          setTimeout(() => {
+            deleteTyping1()
+          }, "1000");
+        }
+      }
+
+
+      
+
+      var is = 0
+      // setTimeout(() => {
+      //     settypeadad(document.getElementById("types").innerHTML.split("").length)
+      //     console.log(typeadad)
+      // }, "10001");
+      const deleteTyping1 = () => {
+        var textdelete = document.getElementById("types").innerHTML.split("")
+        console.log(textdelete.length)
+        if(is < i){
+          textdelete.pop()
+          // document.getElementById("types").innerHTML = textdelete         aaaaaaa
+          document.getElementById("types").innerHTML = textdelete.join("");
+          is++
+          setTimeout(() => {
+            deleteTyping1()
+          }, speed);
+        }
+        else{
+          console.log("yep")
+          // settextt("امیر کبیر")
+          setFunction()
+            is=0
+            i=0
+        }
+        // console.log(i)
+        // for (let ig = 0; ig < i; ig++){
+        //   setTimeout(() => {
+        //   textdelete.pop()
+        //   document.getElementById("types").innerHTML = document.getElementById("types").innerHTML = textdelete.join("");
+        //   }, "1000");
+        //   console.log("yot")
+        // }
+      }
+
+      const setFunction = () => {
+        console.log("running setFunction...")
+        if(textt == "میرزا محمدتقی‌خان فراهانی"){
+          settextt("امیر کبیر")
+        }
+        else{
+          settextt("میرزا محمدتقی‌خان فراهانی")
+        }
+      }
+
+      var text2 =
+      "میرزا محمد تقی‌خان فراهانی (۱۲۲۲-۱۲۶۸ق) (۱۱۸۵-۱۲۳۰ش) مشهور به امیرکبیر، صدراعظم‌ ایران در دوره ناصرالدین شاه قاجار. وی در دوره صدارت سه سال و سه ماه (۳۹ ماهه) خود، اصلاحاتی را در زمینه‌های آموزشی، اجتماعی و سیاسی ایران آغاز کرد. امیرکبیر دارُالفُنون را بنیان نهاد، مسجد و مدرسه دینی ساخت، بست‌نشینی در بیوت علما و تعزیه‌خوانی را محدود و شورش بابی‌ها را سرکوب کرد. او با دسیسه اطرافیان شاه از مقام خود برکنار و به کاشان تبعید شد و به دستور شاه به قتل رسید. قبر وی در حرم امام حسین(ع) قرار دارد.";
+
+      var i2 = 0;
+      var speed2 = 20;
+      const typeWriter2 = () => {
+        if (i2 < text2.length) {
+          document.getElementById("boro").innerHTML += text2.charAt(i2);
+          i2++;
+          setTimeout(typeWriter2, speed2);
+          // donetype();
+        }
+      }
+
     useEffect(() => {
 
       const dayereanim1 = document.getElementById("dayereanim1")
@@ -104,36 +190,27 @@ export default function Home(){
       }, "3100");
 
 
-
       setTimeout(() => {
-        photoabout.style.outlineOffset="5px"
-        const myText = new AutoTyping({
-          id: "types",
-    
-          typeText: ["میرزا محمدتقی‌خان فراهانی", "امیر کبیر"],
-    
-          // typeSpeed:20,
-        }).init();
-        document.querySelector(".types span:nth-child(1)").style.color = "white";
-        typing()
-        typeWriter()
+        typeWriter1()
+        typeWriter2()
       }, "5000");
+      setIsTexttUpdated(true);
 
-
-
-      var text =
-      "میرزا محمد تقی‌خان فراهانی (۱۲۲۲-۱۲۶۸ق) (۱۱۸۵-۱۲۳۰ش) مشهور به امیرکبیر، صدراعظم‌ ایران در دوره ناصرالدین شاه قاجار. وی در دوره صدارت سه سال و سه ماه (۳۹ ماهه) خود، اصلاحاتی را در زمینه‌های آموزشی، اجتماعی و سیاسی ایران آغاز کرد. امیرکبیر دارُالفُنون را بنیان نهاد، مسجد و مدرسه دینی ساخت، بست‌نشینی در بیوت علما و تعزیه‌خوانی را محدود و شورش بابی‌ها را سرکوب کرد. او با دسیسه اطرافیان شاه از مقام خود برکنار و به کاشان تبعید شد و به دستور شاه به قتل رسید. قبر وی در حرم امام حسین(ع) قرار دارد.";
-
-      var i = 0;
-      var speed = 20;
-      const typeWriter = () => {
-        if (i < text.length) {
-          document.getElementById("boro").innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, speed);
-          donetype();
-        }
-      }
+      //ab
+      // setTimeout(() => {
+      //   photoabout.style.outlineOffset="5px"
+      //   const myText = new AutoTyping({
+      //     id: "types",
+    
+      //     typeText: ["میرزا محمدتقی‌خان فراهانی", "امیر کبیر"],
+    
+      //     // typeSpeed:20,
+      //   }).init();
+      //   document.querySelector(".types span:nth-child(1)").style.color = "white";
+      //   typing()
+      //   typeWriter()
+      // }, "5000");
+      
 
 
       const typing = () => {
@@ -160,6 +237,16 @@ export default function Home(){
         }
       }
     },[])
+
+    useEffect(() => {
+      if (isTexttUpdated) {
+        setTimeout(() => {
+          typeWriter1();
+        }, "1000");
+      }
+    }, [textt]);
+
+    
 
     // const cur = document.getElementById("cur")
 

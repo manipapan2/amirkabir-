@@ -27,15 +27,20 @@
 }
 
 .types{
+  display: flex;
   /* position: absolute; */
+  direction: rtl !important;
+  justify-content: flex-end;
   display: flex;
   height: 40px;
-  /* background-color: red; */
   z-index: 50;
   margin: 10px auto 0px auto;
 }
 
 .types p{
+  display: flex;
+  justify-content: flex-end;
+  direction: rtl !important;
   margin-bottom: 0;
   font-family: IRANSans;
 }
